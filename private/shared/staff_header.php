@@ -60,12 +60,12 @@
 			<h1 id="colorlib-logo"><a href="../index.php">Card Bee</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li><a href="../index.php">Home</a></li>
-					<li ><a href="../what-we-do.html">What we do</a></li>
-					<li><a href="../team-members.html">Team members</a></li>
-					<li><a href="../choose-a-card.html">Choose a card</a></li>
-					<li><a href="../use-this-card.html">Use this card</a></li>
-					<li><a href="../contact.html">Contact</a></li>
+					<li><a href=<?php echo url_for(HOME_PATH); ?>>Home</a></li>
+					<li ><a href=<?php echo url_for(WHAT_WE_DO_PATH); ?>>What we do</a></li>
+					<li><a href=<?php echo url_for(TEAM_MEMBERS_PATH); ?>>Team members</a></li>
+					<li><a href=<?php echo url_for(CHOOSE_A_CARD_PATH); ?>>Choose a card</a></li>
+					<li><a href=<?php echo url_for(USE_THIS_CARD_PATH); ?>>Use this card</a></li>
+					<li><a href=<?php echo url_for(CONTACT_PATH); ?>>Contact</a></li>
 					<li class="colorlib-active"><a href="/staff/index.php">Admin</a></li>
 				</ul>
 			</nav>
