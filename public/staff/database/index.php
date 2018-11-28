@@ -12,8 +12,21 @@
 				<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
 					<span class="heading-meta">Admin</span>
 						<h2 class="colorlib-heading">Database</h2>
-                        <h3><a href="<?php echo url_for('/staff/database/card/index.php'); ?>">Add card information</a></h3>
-                        <h3><a href="<?php echo url_for('/staff/admins/franchise/index.php'); ?>">Add franchise information</a></h3>
+						
+						<form action="card/index.php" method="">
+					      <div class="form-group">
+						      <input type="submit" class="btn btn-primary btn-send-message" value="Add card information">
+					      </div>
+						</form>
+						
+						<form action="franchise/index.php" method="">
+					      <div class="form-group">
+						      <input type="submit" class="btn btn-primary btn-send-message" value="Add franchise information">
+					      </div>
+						</form>
+
+                        <!-- <h3><a href="<?php //echo url_for('/staff/database/card/index.php'); ?>">Add card information</a></h3> -->
+                        <!-- <h3><a href="<?php //echo url_for('/staff/admins/franchise/index.php'); ?>">Add franchise information</a></h3> -->
 				</div>
 			</div>
 		</div>
