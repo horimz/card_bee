@@ -2,26 +2,85 @@
   if(!isset($page_title)) { $page_title = 'Staff Area'; }
 ?>
 
-<!doctype html>
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DB-project(2018-2)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
 
-<html lang="en">
-  <head>
-    <title>Card Recommendation - <?php echo h($page_title); ?></title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" media="all" href="<?php echo url_for('../stylesheets/staff.css'); ?>" />
-  </head>
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
 
-  <body>
-    <header>
-      <h1>Staff Area</h1>
-    </header>
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
 
-    <navigation>
-      <ul>
-        <li>User: <?php echo $_SESSION['username'] ?? ''; ?></li>
-        <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
-        <li><a href="<?php echo url_for('/staff/logout.php'); ?>">Logout</a></li>
-      </ul>
-    </navigation>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
 
- <?php echo display_session_message(); ?>
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+	<div id="colorlib-page">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+			<h1 id="colorlib-logo"><a href="../index.php">Card Bee</a></h1>
+			<nav id="colorlib-main-menu" role="navigation">
+				<ul>
+					<li><a href="../index.php">Home</a></li>
+					<li ><a href="../what-we-do.html">What we do</a></li>
+					<li><a href="../team-members.html">Team members</a></li>
+					<li><a href="../choose-a-card.html">Choose a card</a></li>
+					<li><a href="../use-this-card.html">Use this card</a></li>
+					<li><a href="../contact.html">Contact</a></li>
+					<li class="colorlib-active"><a href="/staff/index.php">Admin</a></li>
+				</ul>
+			</nav>
+
+			<div class="colorlib-footer">
+				<p><small>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </span> <span>Demo Images: <a href="http://nothingtochance.co/" target="_blank">nothingtochance.co</a></span></small></p>
+				<ul>
+					<li><a href="#"><i class="icon-facebook2"></i></a></li>
+					<li><a href="#"><i class="icon-twitter2"></i></a></li>
+					<li><a href="#"><i class="icon-instagram"></i></a></li>
+					<li><a href="#"><i class="icon-linkedin2"></i></a></li>
+				</ul>
+			</div>
+
+		</aside>
+
