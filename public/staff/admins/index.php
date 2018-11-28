@@ -13,17 +13,16 @@ $admin_set = find_all_admins();
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
 					<span class="heading-meta">Admin</span>
-						<h2 class="colorlib-heading">Staff area</h2>
+						<h2 class="colorlib-heading">Accounts</h2>
                         <a class="action" href="<?php echo url_for('/staff/admins/new.php'); ?>">Create New Admin</a>
                         
-                        <table class="">
+                        <table class="list">
                             <tr>
                                 <th>ID</th>
                                 <th>First</th>
                                 <th>Last</th>
                                 <th>Email</th>
                                 <th>Username</th>
-                                <th>&nbsp;</th>
                                 <th>&nbsp;</th>
                                 <th>&nbsp;</th>
                             </tr>
@@ -35,7 +34,6 @@ $admin_set = find_all_admins();
                                 <td><?php echo h($admin['last_name']); ?></td>
                                 <td><?php echo h($admin['email']); ?></td>
                                 <td><?php echo h($admin['username']); ?></td>
-                                <td><a class="action" href="<?php echo url_for('/staff/admins/show.php?id=' . h(u($admin['id']))); ?>">View</a></td>
                                 <td><a class="action" href="<?php echo url_for('/staff/admins/edit.php?id=' . h(u($admin['id']))); ?>">Edit</a></td>
                                 <td><a class="action" href="<?php echo url_for('/staff/admins/delete.php?id=' . h(u($admin['id']))); ?>">Delete</a></td>
                                 </tr>

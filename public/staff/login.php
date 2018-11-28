@@ -56,19 +56,19 @@ if(is_post_request()) {
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
 					<span class="heading-meta">Admin</span>
-                        <h2 class="colorlib-heading">Staff area</h2>
-                        <h5>Log in</h5>
-                        <form action="login.php" method="post">
-					    <div class="form-group">
-						    <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo h($username); ?>">
-					    </div>
-					    <div class="form-group">
-						    <input type="password" class="form-control" name="password" placeholder="Password"value="">
-					    </div>
-					    <div class="form-group">
-						    <input type="submit" class="btn btn-primary btn-send-message" value="Submit">
-					    </div>
-				</form>
+              <h2 class="colorlib-heading">Staff area</h2>
+              <h5>Log in</h5>
+              <form action="login.php" method="post">
+					      <div class="form-group">
+						      <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo h($username); ?>">
+					      </div>
+					      <div class="form-group">
+						      <input type="password" class="form-control" name="password" placeholder="Password"value="">
+					      </div>
+					      <div class="form-group">
+						      <input type="submit" class="btn btn-primary btn-send-message" value="Submit">
+					      </div>
+				      </form>
 				</div>
 			</div>
 		</div>
