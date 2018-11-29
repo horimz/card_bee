@@ -22,7 +22,6 @@ $card_set = find_all_cards();
                         
                         <table class="list">
                             <tr>
-                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>Benefit</th>
@@ -35,7 +34,6 @@ $card_set = find_all_cards();
                                 <?php $benefit = find_benefit_by_card_id($card['id']); ?>
                                 <?php $company = find_company_by_card_id($card['id']); ?>
                                 <tr>
-                                <td><?php echo h($card['id']); ?></td>
                                 <td><?php echo h($card['name']); ?></td>
                                 <td><?php echo h($card['type']); ?></td>
                                 <td><?php echo h($benefit['detail']); ?></td>
