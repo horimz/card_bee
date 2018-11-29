@@ -52,7 +52,6 @@ $card_name_set = find_cards_by_franchise_id($id);
                         <a class="action" href="<?php echo url_for('/staff/database/franchisee-new.php?id=' . h(u($franchise['id']))); ?>"); ?>Add New Franchisee</a>
                         <table class="list">
                         <tr>
-                            <th>ID</th>
                             <th>Branch</th>
                             <th>Address</th>
                             <th>Phone Number</th>
@@ -62,7 +61,6 @@ $card_name_set = find_cards_by_franchise_id($id);
                         
                         <?php while($franchisee = mysqli_fetch_assoc($franchisee_set)) { ?>
                         <tr>
-                            <td><?php echo h($franchisee['id']); ?></td>
                             <td><?php echo h($franchisee['branch']); ?></td>
                             <td><?php echo h($franchisee['address']); ?></td>
                             <td><?php echo h($franchisee['phone_number']); ?></td>

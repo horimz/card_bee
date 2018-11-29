@@ -18,7 +18,6 @@ $admin_set = find_all_admins();
                         
                         <table class="list">
                             <tr>
-                                <th>ID</th>
                                 <th>First</th>
                                 <th>Last</th>
                                 <th>Email</th>
@@ -29,7 +28,6 @@ $admin_set = find_all_admins();
 
                             <?php while($admin = mysqli_fetch_assoc($admin_set)) { ?>
                                 <tr>
-                                <td><?php echo h($admin['id']); ?></td>
                                 <td><?php echo h($admin['first_name']); ?></td>
                                 <td><?php echo h($admin['last_name']); ?></td>
                                 <td><?php echo h($admin['email']); ?></td>
