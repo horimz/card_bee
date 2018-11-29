@@ -84,7 +84,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<aside id="colorlib-hero" class="js-fullheight">
 				<div class="flexslider js-fullheight">
 					<ul class="slides">
-				   	<li style="background-image: url(images/img_bg_2.jpg);">
+				   	<li style="background-image: url(images/img_bg_4.jpg);">
 				   		<div class="overlay"></div>
 				   		<div class="container-fluid">
 				   			<div class="row">

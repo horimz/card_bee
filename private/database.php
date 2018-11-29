@@ -2,6 +2,8 @@
 
 require_once('db_credentials.php');
 
+/* MySQL */
+
 function db_connect() {
     $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
     confirm_db_connect();
@@ -28,6 +30,37 @@ function confirm_db_connect() {
 }
 
 function confirm_result_set($result_set) {
+    if (!$result_set) {
+        exit("Database query failed.");
+    }
+}
+
+/* Oracle */
+
+function oci_db_connect() {
+    $connection = OCILogon(ID, PW, OCI);
+    confirm_oci_db_connect($connection);
+    return $connection;
+}
+
+function oci_db_disconnect($connection) {
+    if(isset($connection)) {
+        OCILogoff($connection);
+    }
+}
+
+// function oci_db_escape($connection, $string) {
+//     return mysqli_real_escape_string($connection, $string);
+// }
+
+function confirm_oci_db_connect($connection) {
+    if(!$connection) {
+        $msg = "Database connection failed: ";
+        exit($msg);
+    }
+}
+
+function confirm_oci_db_result_set($result_set) {
     if (!$result_set) {
         exit("Database query failed.");
     }

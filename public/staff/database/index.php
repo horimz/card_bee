@@ -13,15 +13,21 @@
 					<span class="heading-meta">Admin</span>
 						<h2 class="colorlib-heading">Database</h2>
 						
-						<form action="card/index.php" method="">
+						<form action="card.php" method="">
 					      <div class="form-group">
 						      <input type="submit" class="btn btn-primary btn-send-message" value="Add card information">
 					      </div>
 						</form>
 						
-						<form action="franchise/index.php" method="">
+						<form action="franchise.php" method="">
 					      <div class="form-group">
 						      <input type="submit" class="btn btn-primary btn-send-message" value="Add franchise information">
+					      </div>
+						</form>
+
+						<form action="benefits.php" method="">
+					      <div class="form-group">
+						      <input type="submit" class="btn btn-primary btn-send-message" value="Add benefit information">
 					      </div>
 						</form>
 

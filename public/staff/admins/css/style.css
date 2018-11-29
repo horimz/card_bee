@@ -1270,6 +1270,7 @@ table.list tr td {
   border: 1px solid #999999;
   text-align: center;
   padding: 10px;
+  white-space: nowrap;
 }
 
 table.list tr th {
@@ -1278,4 +1279,5 @@ table.list tr th {
   color: white;
   text-align: center;
   padding: 10px;
+  white-space: nowrap;
 }

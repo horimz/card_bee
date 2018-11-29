@@ -1,7 +1,32 @@
 <?php
+/* ---------------------------- Card Company ---------------------------- */
+function find_company_by_card_id($id) {
+  global $db;
+  
+  $sql = "SELECT * FROM card_company ";
+  $sql .= "WHERE id IN ";
+  $sql .= "(SELECT company_id FROM card ";
+  $sql .= "WHERE id='" . db_escape($db, $id) . "') ";
 
-// Card
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  $company = mysqli_fetch_assoc($result);
+  mysqli_free_result($result);
+  return $company;
+}
 
+function find_all_companys() {
+  global $db;
+
+  $sql = "SELECT * FROM card_company ";
+  $sql .= "ORDER BY id ASC";
+
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  return $result;
+}
+
+/* ---------------------------- Card ---------------------------- */
 function find_all_cards() {
     global $db;
 
@@ -13,8 +38,108 @@ function find_all_cards() {
     return $result;
 }
 
-// Franchise
+// function oci_find_all_cards() {
+//   global $db;
+  
+//   $sql = "SELECT * FROM card ";
+//   $sql = "ORDER BY id ACS";
 
+//   $result = OCIParse($db, $sql);
+//   OCIExecute($result);
+//   return $result;
+// }
+
+function insert_card($card) {
+  global $db;
+
+  $sql = "INSERT INTO card ";
+  $sql .= "(name, type, benefit_id, company_id) ";
+  $sql .= "VALUES (";
+  // $sql .= "'" . db_escape($db, $card['id']) . "',";
+  $sql .= "'" . db_escape($db, $card['name']) . "',";
+  $sql .= "'" . db_escape($db, $card['type']) . "',";
+  $sql .= "'" . db_escape($db, $card['benefit_id']) . "',";
+  $sql .= "'" . db_escape($db, $card['company_id']) . "'";
+  $sql .= ")";
+  $result = mysqli_query($db, $sql);
+
+  // For INSERT statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // INSERT failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
+
+function update_card($card) {
+  global $db;
+
+  $sql = "UPDATE card SET ";
+  $sql .= "name='" . db_escape($db, $card['name']) . "', ";
+  $sql .= "type='" . db_escape($db, $card['type']) . "' ";
+  $sql .= "WHERE id='" . db_escape($db, $card['id']) . "' ";
+  $sql .= "LIMIT 1";
+  $result = mysqli_query($db, $sql);
+
+  // For UPDATE statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // UPDATE failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
+
+function delete_card($id) {
+  global $db;
+
+  $sql = "DELETE FROM card ";
+  $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+  $sql .= "LIMIT 1;";
+  $result = mysqli_query($db, $sql);
+
+  // For DELETE statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // DELETE failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
+
+function find_card_by_id($id) {
+  global $db;
+
+  $sql = "SELECT * FROM card ";
+  $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+  $sql .= "LIMIT 1";
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  $card = mysqli_fetch_assoc($result); // find first
+  mysqli_free_result($result);
+  return $card; // returns an assoc. array
+}
+
+function find_cards_by_franchise_id($id) {
+  global $db;
+  $sql = "SELECT * FROM card ";
+  $sql .= "WHERE id IN ";
+  $sql .= "(SELECT card_id FROM affiliate ";
+  $sql .= "WHERE franchise_id='" . db_escape($db, $id) . "') ";
+
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  return $result;
+}
+
+/* ---------------------------- Franchise ---------------------------- */
 function find_all_franchise() {
   global $db;
 
@@ -39,7 +164,83 @@ function find_franchise_by_id($id) {
     return $franchise; // returns an assoc. array
 } 
 
-// Franchisee
+function insert_franchise($franchise) {
+  global $db;
+
+  $sql = "INSERT INTO franchise ";
+  $sql .= "(name, type) ";
+  $sql .= "VALUES (";
+  // $sql .= "'" . db_escape($db, $franchise['id']) . "',";
+  $sql .= "'" . db_escape($db, $franchise['name']) . "',";
+  $sql .= "'" . db_escape($db, $franchise['type']) . "'";
+  $sql .= ")";
+  $result = mysqli_query($db, $sql);
+
+  // For INSERT statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // INSERT failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
+
+function update_franchise($franchise) {
+  global $db;
+
+  $sql = "UPDATE franchise SET ";
+  $sql .= "name='" . db_escape($db, $franchise['name']) . "', ";
+  $sql .= "type='" . db_escape($db, $franchise['type']) . "' ";
+  $sql .= "WHERE id='" . db_escape($db, $franchise['id']) . "' ";
+  $sql .= "LIMIT 1";
+  $result = mysqli_query($db, $sql);
+
+  // For UPDATE statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // UPDATE failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
+
+function delete_franchise($franchise) {
+  global $db;
+
+  $sql = "DELETE FROM franchise ";
+  $sql .= "WHERE id='" . db_escape($db, $franchise) . "' ";
+  $sql .= "LIMIT 1;";
+  $result = mysqli_query($db, $sql);
+
+  // For DELETE statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // DELETE failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
+
+function find_franchise_id_by_franchisee_id($id) {
+  global $db;
+
+  $sql = "SELECT franchise_id FROM franchisee ";
+  $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  $franchise = mysqli_fetch_assoc($result);
+  mysqli_free_result($result);
+  return $franchise; // returns an assoc. array
+}
+
+/* ---------------------------- Franchisee ---------------------------- */
 
 function find_franchisee_by_franchise_id($id) {
     global $db;
@@ -50,9 +251,87 @@ function find_franchisee_by_franchise_id($id) {
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
     return $result;
-  }
+}
 
-// Affiliate
+function find_franchisee_by_id($id) {
+  global $db;
+
+  $sql = "SELECT * FROM franchisee ";
+  $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  $franchisee = mysqli_fetch_assoc($result);
+  mysqli_free_result($result);
+  return $franchisee;
+}
+
+function insert_franchisee($franchisee) {
+  global $db;
+
+  $sql = "INSERT INTO franchisee ";
+  $sql .= "(branch, address, phone_number, franchise_id) ";
+  $sql .= "VALUES (";
+  $sql .= "'" . db_escape($db, $franchisee['branch']) . "',";
+  $sql .= "'" . db_escape($db, $franchisee['address']) . "',";
+  $sql .= "'" . db_escape($db, $franchisee['phone_number']) . "',";
+  $sql .= "'" . db_escape($db, $franchisee['franchise_id']) . "'";
+  $sql .= ")";
+  $result = mysqli_query($db, $sql);
+
+  // For INSERT statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // INSERT failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}   
+
+function delete_franchisee($franchisee) {
+  global $db;
+
+  $sql = "DELETE FROM franchisee ";
+  $sql .= "WHERE id='" . db_escape($db, $franchisee) . "' ";
+  $sql .= "LIMIT 1;";
+  $result = mysqli_query($db, $sql);
+
+  // For DELETE statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // DELETE failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
+
+function update_franchisee($franchisee) {
+  global $db;
+
+  $sql = "UPDATE franchisee SET ";
+  $sql .= "branch='" . db_escape($db, $franchisee['branch']) . "', ";
+  $sql .= "address='" . db_escape($db, $franchisee['address']) . "', ";
+  $sql .= "phone_number='" . db_escape($db, $franchisee['phone_number']) . "' ";
+  $sql .= "WHERE id='" . db_escape($db, $franchisee['id']) . "' ";
+  $sql .= "LIMIT 1";
+  $result = mysqli_query($db, $sql);
+
+  // For UPDATE statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // UPDATE failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
+
+/* ---------------------------- Affiliate ---------------------------- */
 function find_all_affiliate() {
   global $db;
 
@@ -64,9 +343,32 @@ function find_all_affiliate() {
   return $result;
 }
 
-// Benefits
+function insert_affiliate($benefit) {
+  global $db;
+
+  $sql = "INSERT INTO affiliate ";
+  $sql .= "(franchise_id, card_id) ";
+  $sql .= "VALUES (";
+  $sql .= "'" . db_escape($db, $benefit['franchise_id']) . "',";
+  $sql .= "'" . db_escape($db, $benefit['card_id']) . "'";
+  $sql .= ")";
+  $result = mysqli_query($db, $sql);
+
+  // For INSERT statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // INSERT failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
+  }
+}
+
+/* ---------------------------- Benefits ---------------------------- */
 function find_benefits_by_franchise_id($id) {
     global $db;
+    
     $sql = "SELECT detail FROM benefits ";
     $sql .= "WHERE id IN ";
     $sql .= "(SELECT benefit_id FROM card ";
@@ -79,255 +381,113 @@ function find_benefits_by_franchise_id($id) {
     return $result;
 }
 
-// --------------  from here
-  function validate_subject($subject) {
-    $errors = [];
+function find_benefit_by_id($id) {
+  global $db;
+  
+  $sql = "SELECT * FROM benefits ";
+  $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
 
-    // menu_name
-    if(is_blank($subject['menu_name'])) {
-      $errors[] = "Name cannot be blank.";
-    } elseif(!has_length($subject['menu_name'], ['min' => 2, 'max' => 255])) {
-      $errors[] = "Name must be between 2 and 255 characters.";
-    }
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  $benefit = mysqli_fetch_assoc($result);
+  mysqli_free_result($result);
+  return $benefit;
+}
 
-    // position
-    // Make sure we are working with an integer
-    $postion_int = (int) $subject['position'];
-    if($postion_int <= 0) {
-      $errors[] = "Position must be greater than zero.";
-    }
-    if($postion_int > 999) {
-      $errors[] = "Position must be less than 999.";
-    }
+function find_benefit_by_card_id($id) {
+  global $db;
+  
+  $sql = "SELECT * FROM benefits ";
+  $sql .= "WHERE id IN ";
+  $sql .= "(SELECT benefit_id FROM card ";
+  $sql .= "WHERE id='" . db_escape($db, $id) . "') ";
 
-    // visible
-    // Make sure we are working with a string
-    $visible_str = (string) $subject['visible'];
-    if(!has_inclusion_of($visible_str, ["0","1"])) {
-      $errors[] = "Visible must be true or false.";
-    }
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  $benefit = mysqli_fetch_assoc($result);
+  mysqli_free_result($result);
+  return $benefit;
+}
 
-    return $errors;
+function find_all_benefits() {
+  global $db;
+
+  $sql = "SELECT * FROM benefits ";
+  $sql .= "ORDER BY id ASC";
+
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  return $result;
+}
+
+function insert_benefit($benefit) {
+  global $db;
+
+  $sql = "INSERT INTO benefits ";
+  $sql .= "(detail) ";
+  $sql .= "VALUES (";
+  $sql .= "'" . db_escape($db, $benefit['detail']) . "'";
+  $sql .= ")";
+  $result = mysqli_query($db, $sql);
+
+  // For INSERT statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // INSERT failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
   }
+}   
 
-  function insert_subject($subject) {
-    global $db;
+function delete_benefit($id) {
+  global $db;
 
-    $errors = validate_subject($subject);
-    if(!empty($errors)) {
-      return $errors;
-    }
+  $sql = "DELETE FROM benefits ";
+  $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+  $sql .= "LIMIT 1;";
+  $result = mysqli_query($db, $sql);
 
-    shift_subject_positions(0, $subject['position']);
-
-    $sql = "INSERT INTO subjects ";
-    $sql .= "(menu_name, position, visible) ";
-    $sql .= "VALUES (";
-    $sql .= "'" . db_escape($db, $subject['menu_name']) . "',";
-    $sql .= "'" . db_escape($db, $subject['position']) . "',";
-    $sql .= "'" . db_escape($db, $subject['visible']) . "'";
-    $sql .= ")";
-    $result = mysqli_query($db, $sql);
-    // For INSERT statements, $result is true/false
-    if($result) {
-      return true;
-    } else {
-      // INSERT failed
-      echo mysqli_error($db);
-      db_disconnect($db);
-      exit;
-    }
+  // For DELETE statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // DELETE failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
   }
+}
 
-  function update_subject($subject) {
-    global $db;
+function update_benefit($benefit) {
+  global $db;
 
-    $errors = validate_subject($subject);
-    if(!empty($errors)) {
-      return $errors;
-    }
+  $sql = "UPDATE benefits SET ";
+  $sql .= "detail='" . db_escape($db, $benefit['detail']) . "' ";
+  $sql .= "WHERE id='" . db_escape($db, $benefit['id']) . "' ";
+  $sql .= "LIMIT 1";
+  $result = mysqli_query($db, $sql);
 
-    $old_subject = find_subject_by_id($subject['id']);
-    $old_position = $old_subject['position'];
-    shift_subject_positions($old_position, $subject['position'], $subject['id']);
-
-    $sql = "UPDATE subjects SET ";
-    $sql .= "menu_name='" . db_escape($db, $subject['menu_name']) . "', ";
-    $sql .= "position='" . db_escape($db, $subject['position']) . "', ";
-    $sql .= "visible='" . db_escape($db, $subject['visible']) . "' ";
-    $sql .= "WHERE id='" . db_escape($db, $subject['id']) . "' ";
-    $sql .= "LIMIT 1";
-
-    $result = mysqli_query($db, $sql);
-    // For UPDATE statements, $result is true/false
-    if($result) {
-      return true;
-    } else {
-      // UPDATE failed
-      echo mysqli_error($db);
-      db_disconnect($db);
-      exit;
-    }
-
+  // For UPDATE statements, $result is true/false
+  if($result) {
+    return true;
+  } else {
+    // UPDATE failed
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
   }
+}
 
-  function delete_subject($id) {
-    global $db;
 
-    $old_subject = find_subject_by_id($id);
-    $old_position = $old_subject['position'];
-    shift_subject_positions($old_position, 0, $id);
 
-    $sql = "DELETE FROM subjects ";
-    $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
-    $sql .= "LIMIT 1";
-    $result = mysqli_query($db, $sql);
 
-    // For DELETE statements, $result is true/false
-    if($result) {
-      return true;
-    } else {
-      // DELETE failed
-      echo mysqli_error($db);
-      db_disconnect($db);
-      exit;
-    }
-  }
 
-  // Pages
 
-  function update_page($page) {
-    global $db;
 
-    $errors = validate_page($page);
-    if(!empty($errors)) {
-      return $errors;
-    }
 
-    $old_page = find_page_by_id($page['id']);
-    $old_position = $old_page['position'];
-    shift_page_positions($old_position, $page['position'], $page['subject_id'], $page['id']);
 
-    $sql = "UPDATE pages SET ";
-    $sql .= "subject_id='" . db_escape($db, $page['subject_id']) . "', ";
-    $sql .= "menu_name='" . db_escape($db, $page['menu_name']) . "', ";
-    $sql .= "position='" . db_escape($db, $page['position']) . "', ";
-    $sql .= "visible='" . db_escape($db, $page['visible']) . "', ";
-    $sql .= "content='" . db_escape($db, $page['content']) . "' ";
-    $sql .= "WHERE id='" . db_escape($db, $page['id']) . "' ";
-    $sql .= "LIMIT 1";
-
-    $result = mysqli_query($db, $sql);
-    // For UPDATE statements, $result is true/false
-    if($result) {
-      return true;
-    } else {
-      // UPDATE failed
-      echo mysqli_error($db);
-      db_disconnect($db);
-      exit;
-    }
-
-  }
-
-  function delete_page($id) {
-    global $db;
-
-    $old_page = find_page_by_id($id);
-    $old_position = $old_page['position'];
-    shift_page_positions($old_position, 0, $old_page['subject_id'], $id);
-
-    $sql = "DELETE FROM pages ";
-    $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
-    $sql .= "LIMIT 1";
-    $result = mysqli_query($db, $sql);
-
-    // For DELETE statements, $result is true/false
-    if($result) {
-      return true;
-    } else {
-      // DELETE failed
-      echo mysqli_error($db);
-      db_disconnect($db);
-      exit;
-    }
-  }
-
-  function find_pages_by_subject_id($subject_id, $options=[]) {
-    global $db;
-
-    $visible = $options['visible'] ?? false;
-
-    $sql = "SELECT * FROM pages ";
-    $sql .= "WHERE subject_id='" . db_escape($db, $subject_id) . "' ";
-    if($visible) {
-      $sql .= "AND visible = true ";
-    }
-    $sql .= "ORDER BY position ASC";
-    $result = mysqli_query($db, $sql);
-    confirm_result_set($result);
-    return $result;
-  }
-
-  function count_pages_by_subject_id($subject_id, $options=[]) {
-    global $db;
-
-    $visible = $options['visible'] ?? false;
-
-    $sql = "SELECT COUNT(id) FROM pages ";
-    $sql .= "WHERE subject_id='" . db_escape($db, $subject_id) . "' ";
-    if($visible) {
-      $sql .= "AND visible = true ";
-    }
-    $sql .= "ORDER BY position ASC";
-    $result = mysqli_query($db, $sql);
-    confirm_result_set($result);
-    $row = mysqli_fetch_row($result);
-    mysqli_free_result($result);
-    $count = $row[0];
-    return $count;
-  }
-
-  function shift_page_positions($start_pos, $end_pos, $subject_id, $current_id=0) {
-    global $db;
-
-    if($start_pos == $end_pos) { return; }
-
-    $sql = "UPDATE pages ";
-    if($start_pos == 0) {
-      // new item, +1 to items greater than $end_pos
-      $sql .= "SET position = position + 1 ";
-      $sql .= "WHERE position >= '" . db_escape($db, $end_pos) . "' ";
-    } elseif($end_pos == 0) {
-      // delete item, -1 from items greater than $start_pos
-      $sql .= "SET position = position - 1 ";
-      $sql .= "WHERE position > '" . db_escape($db, $start_pos) . "' ";
-    } elseif($start_pos < $end_pos) {
-      // move later, -1 from items between (including $end_pos)
-      $sql .= "SET position = position - 1 ";
-      $sql .= "WHERE position > '" . db_escape($db, $start_pos) . "' ";
-      $sql .= "AND position <= '" . db_escape($db, $end_pos) . "' ";
-    } elseif($start_pos > $end_pos) {
-      // move earlier, +1 to items between (including $end_pos)
-      $sql .= "SET position = position + 1 ";
-      $sql .= "WHERE position >= '" . db_escape($db, $end_pos) . "' ";
-      $sql .= "AND position < '" . db_escape($db, $start_pos) . "' ";
-    }
-    // Exclude the current_id in the SQL WHERE clause
-    $sql .= "AND id != '" . db_escape($db, $current_id) . "' ";
-    $sql .= "AND subject_id = '" . db_escape($db, $subject_id) . "'";
-
-    $result = mysqli_query($db, $sql);
-    // For UPDATE statements, $result is true/false
-    if($result) {
-      return true;
-    } else {
-      // UPDATE failed
-      echo mysqli_error($db);
-      db_disconnect($db);
-      exit;
-    }
-  }
 
 
 // Admins
