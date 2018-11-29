@@ -35,7 +35,7 @@ $franchise_set = find_all_franchise();
                                 <td><?php echo h($franchise['type']); ?></td>
                                 <td><a class="action" href="<?php echo url_for('/staff/database/franchise-show.php?id=' . h(u($franchise['id']))); ?>">View</a></td>
                                 <td><a class="action" href="<?php echo url_for('/staff/database/franchise-edit.php?id=' . h(u($franchise['id']))); ?>">Edit</a></td>
-                                <td><a class="action" href="<?php echo url_for('/staff/database/franchise-delete.php?id=' . h(u($franchise['id']))); ?>">Delete(가맹점 존재 시 삭제 불가)</a></td>
+                                <td><a class="action" href="<?php echo url_for('/staff/database/franchise-delete.php?id=' . h(u($franchise['id']))); ?>">Delete(가맹점이 존재하면 삭제 불가)</a></td>
                                 </tr>
                         <?php } ?>
                         </table>

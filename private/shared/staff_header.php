@@ -64,8 +64,6 @@
 					<li ><a href=<?php echo url_for(WHAT_WE_DO_PATH); ?>>What we do</a></li>
 					<li><a href=<?php echo url_for(TEAM_MEMBERS_PATH); ?>>Team members</a></li>
 					<li><a href=<?php echo url_for(CHOOSE_A_CARD_PATH); ?>>Choose a card</a></li>
-					<li><a href=<?php echo url_for(USE_THIS_CARD_PATH); ?>>Use this card</a></li>
-					<li><a href=<?php echo url_for(CONTACT_PATH); ?>>Contact</a></li>
 					<li class="colorlib-active"><a href="/staff/index.php">Admin</a></li>
 				</ul>
 			</nav>
