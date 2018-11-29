@@ -1,3 +1,16 @@
+<?php require_once('../private/initialize.php'); ?>
+
+<?php 
+
+if (is_post_request()) {
+    $id = $_POST['benefit_id'];
+    $card_set = find_cards_by_benefit_id($id);
+} else {
+    redirect_to(url_for('recommend-card-by-benefits.php'));
+}
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -58,8 +71,8 @@
 				<ul>
 					<li><a href="index.php">Home</a></li>
 					<li><a href="what-we-do.html">What we do</a></li>
-					<li class="colorlib-active"><a href="team-members.html">Team members</a></li>
-					<li><a href="choose-a-card.php">Choose a card</a></li>
+					<li><a href="team-members.html">Team members</a></li>
+					<li class="colorlib-active"><a href="choose-a-card.php">Choose a card</a></li>
 					<li><a href="use-this-card.php">Use this card</a></li>
 					<li><a href="/staff/index.php">Admin</a></li>
 				</ul>
@@ -80,24 +93,52 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</aside>
 
 		<div id="colorlib-main">
-
-			<div class="colorlib-about">
+			<div class="colorlib-services">
 				<div class="colorlib-narrow-content">
-					<div class="row row-bottom-padded-md">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Choose a card</span>
+                            <h2 class="colorlib-heading">Choose by benefits</h2>
+
+                            <a class="back-link" href="<?php echo url_for('recommend-card-by-benefits.php'); ?>">&laquo; Back</a>
+                            <p class="colorlib-lead">Cards for you</p>
+                            <table class="list">
+                            <tr>
+                                <th>Name</th>
+                                <th>Detail</th>
+                            </tr>
+
+                            <?php while($card = mysqli_fetch_assoc($card_set)) { ?>
+                                <?php $benefit = find_benefit_by_card_id($card['id']); ?>
+                            <tr>
+                                <td><?php echo h($card['name']); ?></td>
+                                <td><?php echo h($benefit['detail']); ?></td>
+                            </tr>
+                            <?php } ?>
+                            </table>
+                            <?php mysqli_free_result($card_set); ?>
+                            
+						</div>
+					</div>	
+				</div>
+            </div>
+            
+			<div id="get-in-touch" class="colorlib-bg-color">
+				<div class="colorlib-narrow-content">
+					<div class="row">
 						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="about-desc">
-								<span class="heading-meta">Team members</span>
-								<h2 class="colorlib-heading">Team 1</h2>
-								<p>김영환</p>
-								<p>박정민</p>
-								<p>윤장원</p>
-								<p>민혜준</p>
-							</div>
+							<h2>Learn more about these cards!</h2>
+                        </div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<p><a href="#" class="btn btn-primary btn-learn">Go find out!</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

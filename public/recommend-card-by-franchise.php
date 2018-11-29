@@ -1,3 +1,5 @@
+<?php require_once('../private/initialize.php'); ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -58,8 +60,8 @@
 				<ul>
 					<li><a href="index.php">Home</a></li>
 					<li><a href="what-we-do.html">What we do</a></li>
-					<li class="colorlib-active"><a href="team-members.html">Team members</a></li>
-					<li><a href="choose-a-card.php">Choose a card</a></li>
+					<li><a href="team-members.html">Team members</a></li>
+					<li class="colorlib-active"><a href="choose-a-card.php">Choose a card</a></li>
 					<li><a href="use-this-card.php">Use this card</a></li>
 					<li><a href="/staff/index.php">Admin</a></li>
 				</ul>
@@ -80,24 +82,37 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</aside>
 
 		<div id="colorlib-main">
-
-			<div class="colorlib-about">
+			<div class="colorlib-services">
 				<div class="colorlib-narrow-content">
-					<div class="row row-bottom-padded-md">
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="about-desc">
-								<span class="heading-meta">Team members</span>
-								<h2 class="colorlib-heading">Team 1</h2>
-								<p>김영환</p>
-								<p>박정민</p>
-								<p>윤장원</p>
-								<p>민혜준</p>
-							</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Choose a card</span>
+                            <h2 class="colorlib-heading">Choose by franchise</h2>
+                            
+                            <p class="colorlib-lead">Franchise List</p>
+
+                            <?php $franchise_set = find_all_franchise(); ?>
+
+                            <form action="<?php echo url_for('recommend-card-by-franchise-result.php'); ?>" method="post">
+                                <div class="form-group">
+                                    <select name="franchise_id">
+                                    <?php while($franchise = mysqli_fetch_assoc($franchise_set)) { ?>
+                                        <option value="<?php echo h($franchise['id']); ?>"><?php echo h($franchise['name']); ?></option>
+                                    <?php } ?>  
+                                    <?php mysqli_free_result($franchise_set); ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary btn-send-message" value="Select">
+                                </div>
+                            </form>
 						</div>
-					</div>
+					</div>	
 				</div>
-			</div>
+            </div>
 		</div>
+	</div>
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

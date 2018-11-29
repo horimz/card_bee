@@ -15,8 +15,8 @@ define("SHARED_PATH", PRIVATE_PATH . '/shared');
 define("HOME_PATH", '/index.php');
 define("WHAT_WE_DO_PATH", '/what-we-do.html');
 define("TEAM_MEMBERS_PATH", '/team-members.html');
-define("CHOOSE_A_CARD_PATH", '/choose-a-card.html');
-define("USE_THIS_CARD_PATH", '/use-this-card.html');
+define("CHOOSE_A_CARD_PATH", '/choose-a-card.php');
+define("USE_THIS_CARD_PATH", '/use-this-card.php');
 define("CONTACT_PATH", '/contact.html');
 
 require_once('functions.php');

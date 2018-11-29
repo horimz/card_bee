@@ -58,8 +58,8 @@
 				<ul>
 					<li><a href="index.php">Home</a></li>
 					<li><a href="what-we-do.html">What we do</a></li>
-					<li class="colorlib-active"><a href="team-members.html">Team members</a></li>
-					<li><a href="choose-a-card.php">Choose a card</a></li>
+					<li><a href="team-members.html">Team members</a></li>
+					<li class="colorlib-active"><a href="choose-a-card.php">Choose a card</a></li>
 					<li><a href="use-this-card.php">Use this card</a></li>
 					<li><a href="/staff/index.php">Admin</a></li>
 				</ul>
@@ -80,24 +80,36 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</aside>
 
 		<div id="colorlib-main">
-
-			<div class="colorlib-about">
+			<div class="colorlib-services">
 				<div class="colorlib-narrow-content">
-					<div class="row row-bottom-padded-md">
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="about-desc">
-								<span class="heading-meta">Team members</span>
-								<h2 class="colorlib-heading">Team 1</h2>
-								<p>김영환</p>
-								<p>박정민</p>
-								<p>윤장원</p>
-								<p>민혜준</p>
-							</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Choose a card</span>
+							<h2 class="colorlib-heading">Which benefits do you want?</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<a href="recommend-card-by-franchise.php" class="services-wrap animate-box" data-animate-effect="fadeInRight">
+								<div class="services-img" style="background-image: url(images/services-1.jpg)"></div>
+								<div class="desc">
+									<h3>Choose by Franchise</h3>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-4">
+							<a href="recommend-card-by-benefits.php" class="services-wrap animate-box" data-animate-effect="fadeInRight">
+								<div class="services-img" style="background-image: url(images/services-2.jpg)"></div>
+								<div class="desc">
+									<h3>Choose by benefits</h3>
+								</div>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

@@ -14,7 +14,7 @@ if(is_post_request()) {
   $card['id'] = $id;
   $card['name'] = $_POST['name'] ?? '';
   $card['type'] = $_POST['type'] ?? '';
-  // $card['benefit_id'] = $_POST['benefit_id'] ?? '';
+  $card['benefit_id'] = $_POST['benefit_id'] ?? '';
   // $card['company_id'] = $_POST['company_id'] ?? '';
 
   $result = update_card($card); 
@@ -25,7 +25,8 @@ if(is_post_request()) {
     $errors = $result;
   }
 } else {
-  $card = find_card_by_id($id);          
+  $card = find_card_by_id($id);   
+  $benefit_set = find_all_benefits();       
 }
 
 ?>
@@ -49,10 +50,17 @@ if(is_post_request()) {
                           <div class="form-group">
                             <input type="text" class="form-control" name="type" placeholder="Type" value="<?php echo h($card['type']); ?>">
                           </div>
-                          <!-- <div class="form-group">
-                            <input type="text" class="form-control" name="benefit_id" placeholder="Benefit ID" value="<?php //echo h($card['benefit_id']); ?>">
-                          </div>
+
                           <div class="form-group">
+                            <select name="benefit_id">
+                              <?php while($benefit = mysqli_fetch_assoc($benefit_set)) { ?>
+                                <option value="<?php echo h($benefit['id']); ?>"><?php echo h($benefit['detail']); ?></option>
+                              <?php } ?>  
+                              <?php mysqli_free_result($benefit_set); ?>
+                            </select>
+                          </div>
+
+                          <!-- <div class="form-group">
                             <input type="text" class="form-control" name="company_id" placeholder="Company ID" value="<?php //echo h($card['company_id']); ?>">
                           </div> -->
                           <div class="form-group">

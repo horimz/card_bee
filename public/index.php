@@ -59,9 +59,8 @@
 					<li class="colorlib-active"><a href="index.php">Home</a></li>
 					<li><a href="what-we-do.html">What we do</a></li>
 					<li><a href="team-members.html">Team members</a></li>
-					<li><a href="choose-a-card.html">Choose a card</a></li>
-					<li><a href="use-this-card.html">Use this card</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="choose-a-card.php">Choose a card</a></li>
+					<li><a href="use-this-card.php">Use this card</a></li>
 					<li><a href="/staff/index.php">Admin</a></li>
 				</ul>
 			</nav>

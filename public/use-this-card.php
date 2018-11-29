@@ -53,15 +53,14 @@
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<h1 id="colorlib-logo"><a href="index.html">Card Bee</a></h1>
+			<h1 id="colorlib-logo"><a href="index.php">Card Bee</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="index.php">Home</a></li>
 					<li><a href="what-we-do.html">What we do</a></li>
 					<li><a href="team-members.html">Team members</a></li>
-					<li class="colorlib-active"><a href="choose-a-card.html">Choose a card</a></li>
-					<li><a href="use-this-card.html">Use this card</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="choose-a-card.php">Choose a card</a></li>
+					<li class="colorlib-active"><a href="use-this-card.php">Use this card</a></li>
 					<li><a href="/staff/index.php">Admin</a></li>
 				</ul>
 			</nav>
@@ -81,108 +80,91 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</aside>
 
 		<div id="colorlib-main">
-			<div class="colorlib-services">
+
+			<div class="colorlib-blog">
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Choose a card</span>
-							<h2 class="colorlib-heading">Which benefits do you want?</h2>
+							<span class="heading-meta">Use this card</span>
+							<h2 class="colorlib-heading">Choose a place</h2>
 						</div>
 					</div>
-					<div class="row row-bottom-padded-md">
-						<div class="col-md-6">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-										<div class="colorlib-icon">
-											<i class="flaticon-worker"></i>
-										</div>
-										<div class="colorlib-text">
-											<h3>General Conctructing</h3>
-											<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-										</div>
-									</div>
-
-									<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-										<div class="colorlib-icon">
-											<i class="flaticon-sketch"></i>
-										</div>
-										<div class="colorlib-text">
-											<h3>Pre-Contruction Design</h3>
-											<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-										</div>
-									</div>
+					<div class="row">
+						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="blog-entry">
+								<a href="blog.html" class="blog-img"><img src="images/blog-1.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
+								<div class="desc">
+									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog.html">Renovating National Gallery</a></h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-										<div class="colorlib-icon">
-											<i class="flaticon-engineering"></i>
-										</div>
-										<div class="colorlib-text">
-											<h3>Building &amp; Modeling</h3>
-											<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-										</div>
-									</div>
-
-									<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-										<div class="colorlib-icon">
-											<i class="flaticon-crane"></i>
-										</div>
-										<div class="colorlib-text">
-											<h3>Construction Management</h3>
-											<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-										</div>
-									</div>
+						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="blog-entry">
+								<a href="blog.html" class="blog-img"><img src="images/blog-2.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
+								<div class="desc">
+									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog.html">Wordpress for a Beginner</a></h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="blog-entry">
+								<a href="blog.html" class="blog-img"><img src="images/blog-3.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
+								<div class="desc">
+									<span><small>April 14, 2018 </small> | <small> Inspiration </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog.html">Make website from scratch</a></h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 								</div>
 							</div>
 						</div>
 					</div>
+
 					<div class="row">
-						<div class="col-md-4">
-							<a href="services.html" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-								<div class="services-img" style="background-image: url(images/services-1.jpg)"></div>
+						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="blog-entry">
+								<a href="blog.html" class="blog-img"><img src="images/blog-4.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
 								<div class="desc">
-									<h3>Design &amp; Build</h3>
+									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog.html">Renovating National Gallery</a></h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 								</div>
-							</a>
+							</div>
 						</div>
-						<div class="col-md-4">
-							<a href="services.html" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-								<div class="services-img" style="background-image: url(images/services-2.jpg)"></div>
+						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="blog-entry">
+								<a href="blog.html" class="blog-img"><img src="images/blog-5.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
 								<div class="desc">
-									<h3>House Remodeling</h3>
+									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog.html">Wordpress for a Beginner</a></h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 								</div>
-							</a>
+							</div>
 						</div>
-						<div class="col-md-4">
-							<a href="services.html" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-								<div class="services-img" style="background-image: url(images/services-3.jpg)"></div>
+						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="blog-entry">
+								<a href="blog.html" class="blog-img"><img src="images/blog-6.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
 								<div class="desc">
-									<h3>Construction Management</h3>
+									<span><small>April 14, 2018 </small> | <small> Inspiration </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog.html">Make website from scratch</a></h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 								</div>
-							</a>
+							</div>
 						</div>
 					</div>
+
 					<div class="row">
-						<div class="col-md-4">
-							<a href="services.html" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-								<div class="services-img" style="background-image: url(images/services-4.jpg)"></div>
-								<div class="desc">
-									<h3>Painting &amp; Tiling</h3>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-4">
-							<a href="services.html" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-								<div class="services-img" style="background-image: url(images/services-5.jpg)"></div>
-								<div class="desc">
-									<h3>Kitchen Remodeling</h3>
-								</div>
-							</a>
+						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+							<ul class="pagination">
+								<li class="disabled"><a href="#">&laquo;</a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">&raquo;</a></li>
+							</ul>
 						</div>
 					</div>
 				</div>

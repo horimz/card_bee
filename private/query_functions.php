@@ -79,7 +79,8 @@ function update_card($card) {
 
   $sql = "UPDATE card SET ";
   $sql .= "name='" . db_escape($db, $card['name']) . "', ";
-  $sql .= "type='" . db_escape($db, $card['type']) . "' ";
+  $sql .= "type='" . db_escape($db, $card['type']) . "', ";
+  $sql .= "benefit_id='" . db_escape($db, $card['benefit_id']) . "' ";
   $sql .= "WHERE id='" . db_escape($db, $card['id']) . "' ";
   $sql .= "LIMIT 1";
   $result = mysqli_query($db, $sql);
@@ -133,6 +134,16 @@ function find_cards_by_franchise_id($id) {
   $sql .= "WHERE id IN ";
   $sql .= "(SELECT card_id FROM affiliate ";
   $sql .= "WHERE franchise_id='" . db_escape($db, $id) . "') ";
+
+  $result = mysqli_query($db, $sql);
+  confirm_result_set($result);
+  return $result;
+}
+
+function find_cards_by_benefit_id($id) {
+  global $db;
+  $sql = "SELECT * FROM card ";
+  $sql .= "WHERE benefit_id='" . db_escape($db, $id) . "' ";
 
   $result = mysqli_query($db, $sql);
   confirm_result_set($result);
