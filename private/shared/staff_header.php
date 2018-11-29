@@ -57,13 +57,13 @@
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<h1 id="colorlib-logo"><a href="../index.php">Card Bee</a></h1>
+			<h1 id="colorlib-logo"><a href="<?php echo url_for(HOME_PATH); ?>">Card Bee</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li><a href=<?php echo url_for(HOME_PATH); ?>>Home</a></li>
-					<li ><a href=<?php echo url_for(WHAT_WE_DO_PATH); ?>>What we do</a></li>
-					<li><a href=<?php echo url_for(TEAM_MEMBERS_PATH); ?>>Team members</a></li>
-					<li><a href=<?php echo url_for(CHOOSE_A_CARD_PATH); ?>>Choose a card</a></li>
+					<li><a href="<?php echo url_for(HOME_PATH); ?>">Home</a></li>
+					<li ><a href="<?php echo url_for(WHAT_WE_DO_PATH); ?>">What we do</a></li>
+					<li><a href="<?php echo url_for(TEAM_MEMBERS_PATH); ?>">Team members</a></li>
+					<li><a href="<?php echo url_for(CHOOSE_A_CARD_PATH); ?>">Choose a card</a></li>
 					<li class="colorlib-active"><a href="/staff/index.php">Admin</a></li>
 				</ul>
 			</nav>

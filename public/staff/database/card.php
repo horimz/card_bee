@@ -39,7 +39,7 @@ $card_set = find_all_cards();
                                 <td><?php echo h($benefit['detail']); ?></td>
                                 <td><?php echo h($company['name']); ?></td>
                                 <td><a class="action" href="<?php echo url_for('/staff/database/card-edit.php?id=' . h(u($card['id']))); ?>">Edit</a></td>
-                                <td><a class="action" href="<?php echo url_for('/staff/database/card-delete.php?id=' . h(u($card['id']))); ?>">Delete(해당 카드를 지원하는 가맹점이 존재하지 않는 경우만 삭제)</a></td>
+                                <td><a class="action" href="<?php echo url_for('/staff/database/card-delete.php?id=' . h(u($card['id']))); ?>">Delete(해당 카드를 지원하는 가맹점이 존재할 경우 삭제 불가)</a></td>
                                 </tr>
                         <?php } ?>
                         </table>
