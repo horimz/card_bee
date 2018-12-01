@@ -92,7 +92,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 							<a href="recommend-card-by-franchise.php" class="services-wrap animate-box" data-animate-effect="fadeInRight">
 								<div class="services-img" style="background-image: url(images/services-1.jpg)"></div>
 								<div class="desc">
-									<h3>Choose by Franchise</h3>
+									<h3>By Franchise</h3>
 								</div>
 							</a>
 						</div>
@@ -100,7 +100,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 							<a href="recommend-card-by-benefits.php" class="services-wrap animate-box" data-animate-effect="fadeInRight">
 								<div class="services-img" style="background-image: url(images/services-2.jpg)"></div>
 								<div class="desc">
-									<h3>Choose by benefits</h3>
+									<h3>By benefits</h3>
 								</div>
 							</a>
 						</div>

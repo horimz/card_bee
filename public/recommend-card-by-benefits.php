@@ -86,7 +86,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
 							<span class="heading-meta">Choose a card</span>
-                            <h2 class="colorlib-heading">Choose by benefits</h2>
+                            <h2 class="colorlib-heading">By benefits</h2>
                             
                             <p class="colorlib-lead">Benefit List</p>
 

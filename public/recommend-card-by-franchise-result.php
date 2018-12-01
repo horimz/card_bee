@@ -97,7 +97,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
 							<span class="heading-meta">Choose a card</span>
-                            <h2 class="colorlib-heading">Choose by franchise</h2>
+                            <h2 class="colorlib-heading">By franchise</h2>
 
                             <a class="back-link" href="<?php echo url_for('recommend-card-by-franchise.php'); ?>">&laquo; Back</a>
                             <p class="colorlib-lead">Cards for you</p>
