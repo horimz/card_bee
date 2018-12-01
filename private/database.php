@@ -38,7 +38,7 @@ function confirm_result_set($result_set) {
 /* Oracle */
 
 function oci_db_connect() {
-    $connection = OCILogon(ID, PW, OCI);
+    $connection = OCILogon(USER, PASS, SERVER);
     confirm_oci_db_connect($connection);
     return $connection;
 }
